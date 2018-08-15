@@ -21,20 +21,24 @@ if (mysqli_connect_errno()) {
 
 //$query = "UPDATE news SET h1='новость 3' WHERE h1='новость 1';";
 
-$query = " SELECT * FROM news; ";
+$query = " SELECT * FROM news_category; ";
 
 $info = mysqli_query($con, $query);
 
 $count=mysqli_num_rows($info);
 
-$row1 = mysqli_fetch_array($info); //возвращает одну строку
-
-print_r($row1);
+if ($count) {
+	while ($row = mysqli_fetch_array($info)){  //возвращает одну строку
+		echo $row['id']."<br>";
+	}
+}
 
 echo "<br>".$count."<br>";
-
-
 
 var_dump($info);
 
 echo mysqli_affected_rows($con);
+
+// Агрегатные функции COUNT, SUM, AVG, MAX, MIN
+//SELECT COUNT(*) FROM `news` WHERE `category_id`='1'; SELECT MAX(id) as qwe FROM `news_category`
+//SELECT name, COUNT(*) FROM `user` GROUP BY name
