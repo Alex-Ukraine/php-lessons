@@ -43,6 +43,7 @@ $car2->fuel='14';
 $car2->color='black';*/
 
 //$car3= new Car; 
+//*
 
 echo "<br><br>";
 print_r($car1);
